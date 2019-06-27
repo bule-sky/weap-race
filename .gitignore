@@ -1,2 +1,5 @@
 /server/node_modules
 /server/.idea
+/server/logs
+/server/run
+/server/config/config.default.js
