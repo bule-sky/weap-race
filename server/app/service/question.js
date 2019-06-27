@@ -34,7 +34,6 @@ class QuestionService extends Service {
               id: params.id
           }
         });
-        // return Promise.all([menu,item])
         return list;
     } catch (e) {
         throw new Error(e)
