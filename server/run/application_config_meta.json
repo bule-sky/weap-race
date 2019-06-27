@@ -1,0 +1,305 @@
+{
+  "keys": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "port": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+      "path": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "hostname": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+    }
+  },
+  "middleware": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+  "forbidip": {
+    "forbidips": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js"
+  },
+  "security": {
+    "xframe": {
+      "enable": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+      "value": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js"
+    },
+    "csrf": {
+      "enable": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+      "ignoreJSON": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+      "useSession": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js",
+      "cookieName": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js",
+      "sessionName": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js",
+      "headerName": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js",
+      "bodyName": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js",
+      "queryName": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js"
+    },
+    "domainWhiteList": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+    "protocolWhiteList": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js",
+    "defaultMiddleware": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js",
+    "hsts": {
+      "enable": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.local.js",
+      "maxAge": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js",
+      "includeSubdomains": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js",
+      "value": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js",
+      "value": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js",
+      "policy": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js",
+      "checkAddress": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js"
+    }
+  },
+  "sequelize": {
+    "dialect": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+    "host": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+    "port": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+    "database": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+    "username": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+    "password": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js"
+  },
+  "cors": {
+    "origin": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+    "allowMethods": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js",
+    "credentials": "D:\\WWW\\wwwroot\\weap-race\\server\\config\\config.default.js"
+  },
+  "session": {
+    "maxAge": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js",
+    "key": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js",
+    "httpOnly": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js",
+    "encrypt": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js"
+  },
+  "helper": {
+    "shtml": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-security@2.5.0@egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp\\config\\config.default.js",
+    "callback": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp\\config\\config.default.js",
+    "csrf": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-onerror@2.1.0@egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-onerror@2.1.0@egg-onerror\\config\\config.default.js",
+    "templatePath": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-onerror@2.1.0@egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\config.default.js",
+    "dirs": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\config.default.js",
+    "queryField": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\config.default.js",
+    "cookieField": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\config.default.js",
+    "cookieDomain": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-watcher@3.1.0@egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-watcher@3.1.0@egg-watcher\\config\\config.default.js",
+      "development": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-watcher@3.1.0@egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-schedule@3.6.4@egg-schedule\\config\\config.default.js",
+      "file": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-schedule@3.6.4@egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-schedule@3.6.4@egg-schedule\\config\\config.default.js"
+  },
+  "multipart": {
+    "mode": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-multipart@2.7.1@egg-multipart\\config\\config.default.js",
+    "autoFields": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-multipart@2.7.1@egg-multipart\\config\\config.default.js",
+    "defaultCharset": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-multipart@2.7.1@egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-multipart@2.7.1@egg-multipart\\config\\config.default.js",
+    "fieldSize": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-multipart@2.7.1@egg-multipart\\config\\config.default.js",
+    "fields": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-multipart@2.7.1@egg-multipart\\config\\config.default.js",
+    "fileSize": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-multipart@2.7.1@egg-multipart\\config\\config.default.js",
+    "files": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-multipart@2.7.1@egg-multipart\\config\\config.default.js",
+    "fileExtensions": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-multipart@2.7.1@egg-multipart\\config\\config.default.js",
+    "whitelist": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-multipart@2.7.1@egg-multipart\\config\\config.default.js",
+    "tmpdir": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-multipart@2.7.1@egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-multipart@2.7.1@egg-multipart\\config\\config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-development@2.4.3@egg-development\\config\\config.default.js",
+    "ignoreDirs": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-development@2.4.3@egg-development\\config\\config.default.js",
+    "fastReady": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-development@2.4.3@egg-development\\config\\config.default.js",
+    "reloadOnDebug": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-development@2.4.3@egg-development\\config\\config.default.js",
+    "overrideDefault": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-development@2.4.3@egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js",
+    "maxFiles": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js",
+    "maxDays": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-static@2.2.0@egg-static\\config\\config.default.js",
+    "dir": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-static@2.2.0@egg-static\\config\\config.default.js",
+    "dynamic": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-static@2.2.0@egg-static\\config\\config.default.js",
+    "preload": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-static@2.2.0@egg-static\\config\\config.default.js",
+    "buffer": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-static@2.2.0@egg-static\\config\\config.default.js",
+    "maxFiles": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-static@2.2.0@egg-static\\config\\config.default.js"
+  },
+  "view": {
+    "root": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-view@2.1.2@egg-view\\config\\config.default.js",
+    "cache": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-view@2.1.2@egg-view\\config\\config.local.js",
+    "defaultExtension": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-view@2.1.2@egg-view\\config\\config.default.js",
+    "defaultViewEngine": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-view@2.1.2@egg-view\\config\\config.default.js",
+    "mapping": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg-view@2.1.2@egg-view\\config\\config.default.js"
+  },
+  "env": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "name": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "proxy": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "maxProxyCount": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "protocolHeaders": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "ipHeaders": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "hostHeaders": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "pkg": {
+    "name": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "version": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "description": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "private": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "dependencies": {
+      "egg": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "egg-cors": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "egg-scripts": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "egg-sequelize": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "mysql2": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "autod": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "autod-egg": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "egg-bin": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "egg-ci": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "egg-mock": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "eslint": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "eslint-config-egg": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "sequelize-cli": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "webstorm-disable-index": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+    },
+    "engines": {
+      "node": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+    },
+    "scripts": {
+      "start": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "stop": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "dev": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "debug": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "test": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "test-local": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "cov": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "lint": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "ci": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "autod": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+    },
+    "ci": {
+      "version": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+    },
+    "repository": {
+      "type": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "url": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+    },
+    "author": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "license": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+  },
+  "baseDir": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "HOME": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "rundir": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "notFound": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "sitefile": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "middlewares": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "httpClient": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "encoding": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "formLimit": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "jsonLimit": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "strict": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "depth": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "parameterLimit": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+    }
+  },
+  "logger": {
+    "dir": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "encoding": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "env": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "level": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "consoleLevel": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "outputJSON": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "buffer": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "appLogName": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "coreLogName": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "agentLogName": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "errorLogName": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "request": {
+      "timeout": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "freeSocketTimeout": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "maxSockets": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "freeSocketTimeout": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "maxSockets": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "logging": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "workerStartTimeout": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "serverTimeout": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+  "clusterClient": {
+    "maxWaitTime": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js",
+    "responseTimeout": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+  },
+  "onClientError": "D:\\WWW\\wwwroot\\weap-race\\server\\node_modules\\_egg@2.22.2@egg\\config\\config.default.js"
+}
