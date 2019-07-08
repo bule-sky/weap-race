@@ -8,6 +8,7 @@ module.exports = app => {
   // 用户信息
   router.get('/', controller.home.index);
   router.get('/user/login', controller.home.login);
+  router.post('/user/add', controller.home.insert);
   // router.get('/user/:count', controller.home.queryList);
   // router.get('/create', controller.home.create);
 
