@@ -1,5 +1,5 @@
 module.exports = app => {
-  const { STRING, INTEGER, TINYINT } = app.Sequelize;
+  const { STRING, INTEGER, TINYINT, SMALLINT } = app.Sequelize;
 
   const User = app.model.define('sys_users', {
     id: {
@@ -16,7 +16,11 @@ module.exports = app => {
       field: 'avatar',
       type: STRING(240)
     },
-    nickName: STRING(240),
+    nickName: {
+      field: 'nick_name',
+      type: STRING(240)
+    },
+    status: SMALLINT(1),
     country: STRING(240),
     openId: STRING(240),
     province: STRING(240),
@@ -24,7 +28,7 @@ module.exports = app => {
     mobile: STRING(240),
   },{
     underscored: false,
-    createdAt: false,
+    createdAt: 'create_time',
     updatedAt: false,
   });
 

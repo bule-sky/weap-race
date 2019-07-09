@@ -85,7 +85,7 @@ class UserService extends Service {
         }
         const list = await ctx.model.User.findOne({
           where: {
-              openId: params.openId
+            openId: params.openId
           }
         });
         return list;
