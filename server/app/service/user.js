@@ -94,6 +94,31 @@ class UserService extends Service {
     }
   }
 
+  // 更改当前状态
+  async updateByStatus(params) {
+    let {openId, status} = params
+    const {ctx} = this;
+    try {
+        if (!openId) {
+          return {
+            code: true,
+            msg: 'openId为空，请重新登录！！'
+          };
+        }
+        const list = await ctx.model.User.update({
+          status: status
+        } , {
+          where: { openId: openId },
+        });
+        return list;
+    } catch (e) {
+        throw new Error(e)
+    }
+  }
+
+
+
+
 }
 
 module.exports = UserService;

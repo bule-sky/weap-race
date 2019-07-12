@@ -33,7 +33,7 @@ class HomeController extends Controller {
     let result = {}
     const _res = await ctx.service.user.getByOpenId(params)
     if (_res !== null && (params.openId === undefined || _res.openId == params.openId)) {
-      Object.assign(result, {msg: 'openId为空或已存在，请重新登录！！'})
+      Object.assign(result, {msg: 'openId为空或已存在，请重新登录！！',data:{userId: _res.id}})
     } else {
       const res = await ctx.service.user.createByItem(params);
       Object.assign(result, {msg: '添加成功，正在跳转中，请勿刷新页面！！！'})
@@ -41,9 +41,21 @@ class HomeController extends Controller {
     // console.log(result)
     ctx.body = {
       code: 0,
-      data: result
+      ...result
     };
-  }  
+  }
+
+  async updataStatus() {
+    const {ctx} = this;
+    let params = ctx.request.body
+    const _res = await ctx.service.user.updateByStatus(params)
+    console.log(_res)
+    ctx.body = {
+      code: 0,
+      list: _res,
+      data: '测试数据'
+    };
+  }
 
 }
 

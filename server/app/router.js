@@ -9,6 +9,8 @@ module.exports = app => {
   router.get('/', controller.home.index);
   router.get('/user/login', controller.home.login);
   router.post('/user/add', controller.home.insert);
+  router.post('/user/state', controller.home.updataStatus);
+  
   // router.get('/user/:count', controller.home.queryList);
   // router.get('/create', controller.home.create);
 
