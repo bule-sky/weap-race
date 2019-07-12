@@ -1,0 +1,37 @@
+{
+  "name": "weap-race",
+  "version": "1.0.0",
+  "description": "A answer contest app",
+  "main": "dist/app.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development wepy build --watch",
+    "build": "cross-env NODE_ENV=production wepy build --no-cache",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wyx <sky-wyx@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@antv/f2": "^3.3.1",
+    "wepy": "^1.6.0",
+    "wepy-async-function": "^1.4.7"
+  },
+  "devDependencies": {
+    "@antv/f2-canvas": "^1.0.4",
+    "babel-eslint": "^7.2.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.3",
+    "less": "^3.8.1",
+    "lodash": "^4.17.11",
+    "wepy-antv-f2": "^0.0.6",
+    "wepy-compiler-babel": "^1.5.1",
+    "wepy-compiler-less": "^1.3.10",
+    "wepy-compiler-pug": "^1.4.7",
+    "wepy-compiler-sass": "^1.3.12",
+    "wepy-compiler-stylus": "^1.3.12",
+    "wepy-plugin-replace": "^1.5.10"
+  }
+}

@@ -1,0 +1,165 @@
+
+<template>
+    <view>
+        <view wx:if="{{canIUse}}">
+        <view class='header'>
+            <view class="userinfo-avatar">
+                <open-data  type="userAvatarUrl"></open-data>
+            </view>
+        </view>
+        <view class='content'>
+            <view>申请获取以下权限</view>
+            <text>获得您的公开信息(昵称，头像等)</text>
+        </view>
+        <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+            授权登录
+        </button>
+        </view>
+        <view wx:else>请升级微信版本</view>        
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import { get,post } from '@/utils/http'
+
+export default class AuthPage extends wepy.page {
+    config = {
+      navigationBarTitleText: '授权登录'
+    }
+    
+    data = {
+      //判断小程序的API，回调，参数，组件等是否在当前版本可用。
+      canIUse: wepy.canIUse('button.open-type.getUserInfo'),
+      userInfo: {}
+    }
+
+    methods = {
+      async bindGetUserInfo (e) {
+        var that = this;
+        let ret = await wepy.login()
+        let res = ''
+        let {detail:{userInfo}} = e
+        console.log(Boolean(userInfo))
+        if (Boolean(userInfo)) {
+            wepy.$instance.globalData.userInfo = userInfo
+            wepy.setStorage({
+                key:"userInfo",
+                data:JSON.stringify(userInfo)
+            })
+            if (ret.code) {
+              get('user/login',{'code':ret.code}).then((result) => {
+                let {code, data} = result
+                if (result && code === 0) {
+                  if (data.openid){
+                    wepy.setStorageSync('openid', data.openid)
+                    this.methods.createUser(userInfo,data.openid)
+                    this.methods.updateStatus({status:1, openId:data.openid})
+                    wepy.navigateTo({
+                      url: '/pages/index'
+                    })
+                  }
+                }
+              }).catch((err) => {
+                console.log(err);
+              });
+            } else {
+              console.log('登录失败！' + ret.errMsg)
+            }
+        } else {
+          //用户按了拒绝按钮
+          wepy.showModal({
+            title: '警告',
+            content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!',
+            showCancel: false,
+            confirmText: '返回授权'
+          }).then((res) => {
+            if (res.confirm) {
+              console.log('用户点击了“返回授权”')
+            }
+          });
+        }
+      },
+      updateStatus(params) {
+        post(`user/state`, params).then((result) => {
+          console.log(result)
+        }).catch((err) => {
+          console.log(err)
+          Object.assign
+        });
+      },
+      createUser(info, openId) {
+        Object.assign(info, {openId})
+        console.log(info)
+        post(`user/add`, info).then((result) => {
+          console.log(result)
+        }).catch((err) => {
+          console.log(err)
+          Object.assign
+        });
+      }
+    }
+
+    async onLoad() {
+        let self = this;
+        // 查看是否授权
+        wepy.getSetting({
+            success: function (res) {
+              if (res.authSetting['scope.userInfo']) {
+                wepy.getUserInfo({
+                    success: function (res) {
+                        self.userInfo = res.userInfo
+                        wepy.$instance.globalData.userInfo = res.userInfo
+                        let openid = wepy.getStorageSync('openid')
+                        if (openid) {
+                          wepy.navigateTo({
+                              url: '/pages/index'
+                          })
+                        }
+                    }
+                });
+              }
+            }
+        })        
+    }
+}
+</script>
+
+<style>
+.header {
+  position: relative;
+  margin: 90rpx 0 90rpx 50rpx;
+  width: 650rpx;
+  height: 320rpx;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.userinfo-avatar {
+  overflow:hidden;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  margin-top: 50rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.content {
+    margin-left: 50rpx;
+    margin-bottom: 90rpx;
+}
+.content text {
+    display: block;
+    color: #9d9d9d;
+    margin-top: 40rpx;
+}
+.bottom {
+    border-radius: 80rpx;
+    margin: 70rpx 50rpx;
+    font-size: 35rpx;
+}
+</style>

@@ -1,0 +1,45 @@
+<template>
+    <view>
+        <!-- AuthPage -->
+        <AuthPage></AuthPage>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import AuthPage from '@/components/AuthPage'
+
+export default class Start extends wepy.page {
+    components = {
+      AuthPage
+    }
+    
+    // created() {
+    //     console.log('object');
+    // }
+
+    // ready() {
+    //     console.log('object');
+    // }
+
+    // onLaunch() {
+    //     console.log('object');
+    // }
+
+    // onLoad() {
+    //     console.log('object');
+    //     wepy.getStorage({
+    //         key: 'userInfo',
+    //         success (res) {
+    //             console.log(res.data)
+    //         }
+    //     })
+    // }
+}
+</script>
+
+<style>
+page {
+  background: #fff;
+}
+</style>

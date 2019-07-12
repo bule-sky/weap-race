@@ -1,0 +1,211 @@
+<style lang="less">
+
+.section{
+  width:100%;
+  margin-bottom: 30rpx;
+  box-sizing:border-box;
+  .swiper-item {
+    display:block;
+    height:150px;
+    width: 100%;
+    position:relative;
+    align-items:center;
+    justify-content:center;
+    color:#FFFFFF;
+    font-size:36rpx;
+  }
+  .banner{
+    display: inline-block;
+    width: 100%;
+    height: 150px;
+  }
+}
+.box-wrap {
+  width: calc(100% - 40px);
+  padding: 0 20px;
+}
+.user-info {
+  height: 200rpx;
+  border-radius: 32rpx;
+  padding: 20rpx 40rpx;
+  display:flex;
+  background-color: #fd9d24;
+  .avatar {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+  }
+  .info {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 32rpx;
+    justify-content: center;/*水平居中*/
+    color: #FFF;
+    .nickname {
+      font-size: 26rpx;
+      margin-bottom: 20rpx;
+    }
+    .title {
+      font-size: 36rpx;
+    }
+  }
+}
+
+.box-library {
+  margin: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  .item-lore,.item-pk {
+    width: 48%;
+    height: 260rpx;
+    padding-top: 20rpx;
+    border-radius: 32rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .item-lore {
+    background-color: #fd8638;
+    .lore{
+      width: 240rpx;
+      height: 182rpx;
+    }
+  }
+  .item-pk {
+    background-color: #fe705d;
+    .pk {
+      margin-bottom:45rpx;
+      width: 260rpx;
+      height: 140rpx;
+    }
+  }
+  text {
+    font-size: 36rpx;
+    color: #FFF;
+  }
+}
+
+.box-award {
+  background-color: #faa560;
+  .award {
+    width: 194rpx;
+    padding-right: 96rpx;
+  }
+}
+.box-rank {
+  background-color: #ff5757;
+  .rank {
+    width: 172rpx;
+    padding-right: 120rpx;
+  }
+}
+.box-award,.box-rank {
+  display:flex;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+  border-radius: 32rpx;
+  .award,.rank {
+    height: 130rpx;
+    padding-top: 30rpx;
+    padding-left: 60rpx;
+  }
+  text {
+    color: #FFFFFF;
+    font-weight: bold;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;/*水平居中*/
+  }
+}
+</style>
+<template>
+  <view class="container">
+    <view class="section">
+      <scroll-view  scroll-y="true">
+        <swiper class="banner" indicator-dots="false" autoplay="true" circular="true" interval="5000" duration="1000">
+            <block wx:for="{{imgUrls}}"  wx:for-index="index" wx:key="index">
+                <swiper-item>
+                    <view><image class="swiper-item" src="{{imgUrls[index]}}" mode="aspectFill"/></view>
+                </swiper-item>
+            </block>
+        </swiper>
+      </scroll-view>
+    </view>
+
+    <view class="box-wrap">
+      <!-- 用户信息 -->
+      <view class="user-info">
+        <image class="avatar" src="{{userInfo.avatarUrl}}" background-size="cover"  width="180" height="180" alt=""/>
+        <div class="info">
+          <div class="nickname">{{userInfo.nickName}}</div>
+          <div class="title">最高积分： 800分</div>
+        </div>
+      </view>
+
+      <!-- 知识库 -->
+      <view class="box-library">
+        <div class="item-lore">
+          <image class="lore" src="{{ bookUrl }}" background-size="cover"  width="60" height="60" alt=""/>
+          <text>知识竞赛</text>
+        </div>
+        <div class="item-pk" @tap="friendPk()">
+          <image class="pk" src="{{ pkUrl }}" background-size="cover"  width="180" height="180" alt=""/>
+          <text>好友PK</text>
+        </div>
+      </view>
+
+      <!-- 奖励 -->
+      <view class="box-award">
+        <image class="award" src="{{ awardUrl }}" background-size="cover"  width="180" height="180" alt=""/>
+        <text>赛季奖励</text>
+      </view>
+
+      <!-- 排行 -->
+      <view class="box-rank">
+        <image class="rank" src="{{ rankUrl }}" background-size="cover"  width="180" height="180" alt=""/>
+        <text>排行榜</text>
+      </view>
+
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Index extends wepy.page {
+    config = {
+      // navigationBarTitleText: 'test'
+    }
+    data = {
+      scrollTop: 100,
+      imgUrls: [
+        '../static/img/banner1.jpg',
+        '../static/img/banner2.jpg',
+        '../static/img/banner3.jpg',
+        '../static/img/banner4.jpg'
+      ],
+      pkUrl: '../static/img/pk.jpg',
+      bookUrl: '../static/img/book.gif',
+      awardUrl: '../static/img/gift.jpg',
+      rankUrl: '../static/img/rank.jpg',
+      indicatorDots: false,
+      autoplay: false,
+      interval: 5000,
+      duration: 1000,
+      userInfo: {},
+    }
+
+    methods = {
+      friendPk() {
+        wepy.navigateTo({
+            url: 'userinfo?isPage=0'
+        })
+      }
+    }
+    onLoad() {
+      this.userInfo = this.$parent.globalData.userInfo
+    }
+}
+</script>

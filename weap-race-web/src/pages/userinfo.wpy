@@ -1,0 +1,325 @@
+<template>
+    <view class="reel">
+        <view class="box-wrap" @tap="handleViewTap">
+            <image class="avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"  width="180" height="180" alt=""/>
+            <view class="nickname">{{ userInfo.nickName }}</view>
+        </view>
+        <div class="radar" wx:if="{{isPage}}">
+            <F2Canvas :opts="opts" ref="test" canvasId="column" width="690" height="430"></F2Canvas>
+        </div>
+        <div class="result" wx:if="{{isPage}}">
+            <block class="res-item">
+                <text class="res-title">答题竞赛</text>
+                <view class="res-row">
+                    <span class="pull-left">答题场次：20</span>
+                    <span class="res-plus">|</span>
+                    <span class="pull-right">答题总数：234</span>
+                </view>
+                <view class="res-row">
+                    <span class="pull-left">正确率：80%</span>
+                    <span class="res-plus">|</span>
+                    <span class="pull-right">最高积分：234</span>
+                </view>                
+            </block>
+            <block class="res-item">
+                <text class="res-title">好友pk</text>
+                <view class="res-row">
+                    <span class="pull-left">好友PK：20</span>
+                    <span class="res-plus">|</span>
+                    <span class="pull-right">PK胜率：58%</span>
+                </view>
+            </block>
+        </div>
+        <div class="chooseNum" wx:if="{{!isPage}}">
+            <view class="title">请您选择好友Pk的题库数量</view>
+            <picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{casArray}}">
+                <view>共：<text class="Number">{{casArray[casIndex]}}</text>题</view>
+            </picker>
+            <button class="green-btn" bindtap="goHandle">确  定</button>
+        </div>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import F2Canvas from '@/components/F2Canvas'
+import F2 from 'mini-program-utils/dist/f2/adapterF2'
+let chart = null
+const sysInfo = wepy.getSystemInfoSync()
+
+const initChart = (canvas, width, height) => {
+    chart = new F2.Chart({
+        el: canvas,
+        width,
+        height,
+        pixelRatio: sysInfo.pixelRatio
+    })
+
+    const data = [{
+            item: '文艺',
+            score: 60
+        }, {
+            item: '流行',
+            score: 60
+        }, {
+            item: '娱乐',
+            score: 60
+        }, {
+            item: '生活',
+            score: 60
+        }, {
+            item: '理科',
+            score: 60
+        }, {
+            item: '文科',
+            score: 60
+    }];
+
+    chart.coord('polar');
+    chart.source(data, {
+        score: {
+            min: 0,
+            max: 120,
+            nice: false,
+            tickCount: 6
+        }
+    });
+    // chart.tooltip({
+    //     custom: true, // 自定义 tooltip 内容框
+    //     onChange: function onChange(obj) {
+    //         console.log(obj)
+    //         var legend = chart.get('legendController').legends.top[0];
+    //         var tooltipItems = obj.items;
+    //         var legendItems = legend.items;
+    //         var map = {};
+    //         legendItems.map(function(item) {
+    //         map[item.name] = _.clone(item);
+    //         });
+    //         tooltipItems.map(function(item) {
+    //         var name = item.name;
+    //         var value = item.value;
+    //         if (map[name]) {
+    //             map[name].value = value;
+    //         }
+    //         });
+    //         legend.setItems(_.values(map));
+    //     },
+    //     onHide: function onHide() {
+    //         var legend = chart.get('legendController').legends.top[0];
+    //         legend.setItems(chart.getLegendItems().country);
+    //     }
+    // });
+ 
+    chart.axis('item', {
+        label: {
+            fontSize: 12,
+            fontWeight: 'normal',
+            fill: '#fff'
+        },
+        grid: {
+            fill: '#818991',
+            stroke: '#fff',
+            lineDash: null
+        }
+    });
+    chart.axis('score', {
+        label: null,
+        // ffb45a
+        grid: {
+            lineDash: null,
+            stroke: '#fff',
+            // strokeOpacity: 0.4,
+            type: 'arc',
+        },
+        line: {
+            stroke: '#fff',
+            top: false
+        }
+    });
+    
+    chart.area().position('item*score').style({
+        fill: '#fe6300',
+        fillOpacity: 0.8,
+        lineWidth: 2
+    }).animate({
+        appear: {
+            animation: 'groupWaveIn'
+        }
+    });
+    chart.line().position('item*score').style({
+        lineWidth: 0
+    }).animate({
+        appear: {
+            animation: 'groupWaveIn'
+        }
+    });
+
+    chart.point().position('item*score').color('#fe6300').animate({
+        appear: {
+            delay: 200
+        }
+    });
+
+    chart.render();
+    return chart
+}
+
+export default class Circle extends wepy.page {
+  config = {}
+  components = {
+    F2Canvas
+  }
+  data = {
+    userInfo: {
+        avatarUrl: '../static/img/avatr.png',
+        nickName: '向日葵的骄傲'
+    },
+    opts: {
+      onInit: initChart
+    },
+    isPage: true,
+    casArray: ['10', '20', '30', '40', '50'],
+    Gender: 'female',
+    casIndex: 0,
+  }
+
+  onLoad(ev) {
+    this.userInfo = this.$parent.globalData.userInfo
+    if (this.userInfo) {
+        if (!Number(ev.isPage)) {
+            this.isPage = Boolean(Number(ev.isPage))
+        }
+    }
+  }
+  methods = {
+    bindCasPickerChange (e) {
+        this.casIndex = e.detail.value
+        console.log('您选择的题目数是', this.data.casArray[this.casIndex])
+    },
+    goHandle() {
+        wepy.navigateTo({
+            url: `friendPK?isPage=${this.isPage}&num=${this.data.casArray[this.casIndex]}`
+        })
+    }
+  }
+}
+</script>
+
+<style lang="less">
+.green-btn {
+    width: 278rpx;
+    height: 78rpx;
+    line-height: 78rpx;
+    border-radius: 10px;
+    font-size: 36rpx;
+    color: #fff;
+    border: 1rpx #25ec57 solid;
+    box-shadow: 0 2px 6px #ff4651;
+    background-color: #4ad256;
+}
+.green-btn.button-hover {
+    background-color: #5cf368;
+}
+.chooseNum {
+    view {
+        margin-top: 60rpx;
+        margin-bottom: 30rpx;
+        text-align: center;
+        color: #fff;
+        .Number {
+            color: #fef917;
+            font-weight: bold;
+            margin-right: 20rpx;
+        }
+    }
+}
+.pull-right {
+    float: right;
+    display: inline;
+}
+.pull-left {
+    float: left;
+    display: inline;
+}
+.res-row {
+    width: 520rpx;
+    margin: 10px auto;
+    border-radius: 20px;
+    padding: 6px 10px;
+    font-size: 30rpx;
+    text-align: center;
+    border:1px #fb7160 solid;
+    color: #fff;
+    background-color: #a91413;
+}
+.result {
+    position: relative;
+    top: -20px;
+    text-align: center;
+    .res-title {
+        text-align: center;
+        font-size: 32rpx;
+        color: #fff;
+        display: block;
+    }
+}
+page {
+    background: #a91413;
+}
+.reel {
+    height: 95vh;
+    width: calc(100vw / 750 * 690);
+    display: inline-block;
+    margin: 30rpx;
+    position: relative;
+    z-index: 0;
+    border-radius: 0 0 20px 20px;
+    background-color: #ec6052;
+    &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        width: 106%;
+        left: -10px;
+        height: 60rpx;
+        box-shadow: 0 -1px 6px #9a0305;
+        background: -webkit-linear-gradient(#ec6052,#f05f52,#f66253,#f96052,#fe6253);
+        background: -moz-linear-gradient(#ec6052,#f05f52,#f66253,#f96052,#fe6253);
+        background: -ms-linear-gradient(#ec6052,#f05f52,#f66253,#f96052,#fe6253);
+        background: linear-gradient(#ec6052,#f05f52,#f66253,#f96052,#fe6253);
+        border-radius: 15px;
+    }
+    .box-wrap {
+        padding-top: 60rpx;
+        text-align: center;
+        .avatar {
+            margin-top: 36rpx;
+            border-radius: 50%;
+            width: 180rpx;
+            height: 180rpx;
+        }
+        .nickname {
+            display: block;
+            margin-top: 20rpx;
+            font-weight: bold;
+            color: #fff;
+        }
+    }
+}
+.radar {
+    position: relative;
+    top: -20px;
+}
+.radar canvas::after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 22%;
+    left: 30%;
+    width: calc(100vw / 750 * 270);
+    height: calc(100vw / 750 * 270);
+    border-radius: 50%;
+    background: #ffb45a;
+    z-index: -1;
+}
+</style>

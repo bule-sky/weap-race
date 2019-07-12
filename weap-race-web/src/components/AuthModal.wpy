@@ -1,0 +1,185 @@
+<style lang="less" scoped>
+/* 授权弹窗 */
+.authorize_alert_wrapper {
+  .cover {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #000000;
+    opacity: 0.6;
+    z-index: 110;
+  }
+  .authorize_alert {
+    width: 506rpx;
+    height: 232rpx;
+    box-sizing: border-box;
+    padding-top: 40rpx;
+    background: #ffffff;
+    border-radius: 16rpx;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    z-index: 120;
+    .authorize_alert_describe {
+      font-family: 'PingFangSC-Regular', 'Microsoft Yahei', sans-serif;
+      font-size: 32rpx;
+      color: #333333;
+      letter-spacing: 0;
+      text-align: center;
+      margin-top: 18rpx;
+    }
+    .confirm_cancel {
+      position: absolute;
+      width: 506rpx;
+      height: 72rpx;
+      box-sizing: border-box;
+      bottom: 0;
+      left: 0;
+      .confirm {
+        width: 100%;
+        height: 72rpx;
+        line-height: 72rpx;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        font-size: 32rpx;
+        color: #999;
+        border: none;
+        border-radius: 0;
+        border-top: 2rpx solid #e1e1e2;
+        background-color: #fff;
+        font-family: 'PingFangSC-Regular', 'Microsoft Yahei', sans-serif;
+        float: right;
+        letter-spacing: 1px;
+        color: #21b922;
+        &:after {
+          border-radius: 0;
+          border: none;
+        }
+      }
+      .confirm_hover {
+        background-color: #eee;
+      }
+    }
+  }
+}
+.pre-fake-tabbar, .pre-fake-tabbar-bg {
+  width: 100%;
+  height: 96rpx;
+  position: fixed;
+  left: 0;
+}
+
+.pre-fake-tabbar-bg {
+  height: 150rpx;
+}
+
+.show {
+  opacity: 1;
+}
+
+.hide {
+  opacity: 0;
+}
+
+</style>
+<template>
+<!-- 使用 wx.getUserInfo从2018年4月30日开始，小程序与小游戏的体验版、开发版调用 wx.getUserInfo 接口，将无法弹出授权询问框，默认调用失败, 以下为变通办法-->
+    <view class="authorize_alert_wrapper {{showModal ? 'show' : 'hide'}}"  @touchmove.stop="catchTouchEvent">
+        <image id="fake-tabbar_bg" class="pre-fake-tabbar-bg" src="{{fakeTabbarBgUrl}}" style="top:{{fakeTabbarTop}};"/>        
+        <image id="fake-tabbar" class="pre-fake-tabbar" src="{{fakeTabbarUrl}}" style="top:{{fakeTabbarTop}};"/>
+        <view id="cover" class='cover'></view>
+        <view class="authorize_alert">
+            <view class="authorize_alert_describe">前往授权才能继续操作</view>
+            <view class="confirm_cancel">
+                <button class="confirm" hover-class="confirm_hover" @tap.stop="tap" data-btn-type="confirm" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+                    确定
+                </button>
+            </view>
+        </view>
+    </view>
+</template>
+<script>
+import wepy from 'wepy';
+const app = wepy.$instance;
+export default class AuthModal extends wepy.component {
+  data = {
+    showModal: false,
+    // fakeTabbarUrl: '../images/index/fake_tabbar.png',
+    // fakeTabbarBgUrl: '../images/index/fake_tabbar_bg.png',
+    fakeTabbarUrl: '',
+    fakeTabbarBgUrl: '',
+    fakeTabbarTop: null
+  };
+
+  events = {
+      showModal(val, event) {
+          console.log(val);
+          this.showModal = val
+      }
+  }
+
+  methods = {
+    tap() {
+      this.hide();
+    },
+
+    onGotUserInfo(e) {
+      const self = this;
+      console.log('授权', e);
+      if (e.detail.userInfo) {
+        //授权成功
+        console.log('授权成功', e);
+        app.globalData.wxUserInfo = e.detail.userInfo;
+        self.$apply();
+        //通知主界面更新用户消息
+        self.$emit('userinfo-update', e.detail.userInfo);
+      } else {
+        self.show();
+      }
+    },
+
+    catchTouchEvent() {
+      console.log('阻止触摸穿透')
+    }
+  };
+
+  hide() {
+    this.showModal = false;
+    this.$apply();
+    wepy.showTabBar();
+  }
+
+  show() {
+    this.showModal = true;
+    this.$apply();
+    wepy.hideTabBar();
+  }
+
+  autoAdjustTabTop() {
+    const res = wepy.getSystemInfoSync();
+    const {screenHeight} = res;
+    const self = this;
+    const query = wepy.createSelectorQuery();
+    query.select('#fake-tabbar').boundingClientRect();
+    query.exec(function(res) {
+      console.log('boundingClientRect', res);
+      const resData = res[0];
+      if (resData !== null) {
+        // 获取全屏的高度 获取fake-tabbar的实际高度 计算fake-tabbar距离顶端的真实距离
+        const fakeTabbarTop = screenHeight- res[0].height;
+        console.log('fakeTabbarTop', fakeTabbarTop)
+      }
+      self.$apply();
+    });
+  }
+
+  onLoad() {
+    this.autoAdjustTabTop();
+  }
+}
+</script>

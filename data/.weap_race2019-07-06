@@ -1,0 +1,97 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 50547
+ Source Host           : localhost:3306
+ Source Schema         : weap_race
+
+ Target Server Type    : MySQL
+ Target Server Version : 50547
+ File Encoding         : 65001
+
+ Date: 06/07/2019 17:34:03
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for sequelizemeta
+-- ----------------------------
+DROP TABLE IF EXISTS `sequelizemeta`;
+CREATE TABLE `sequelizemeta`  (
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`name`) USING BTREE,
+  UNIQUE INDEX `name`(`name`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sequelizemeta
+-- ----------------------------
+INSERT INTO `sequelizemeta` VALUES ('20190627091729-init-users.js');
+
+-- ----------------------------
+-- Table structure for sys_questions
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_questions`;
+CREATE TABLE `sys_questions`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ask` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '问题',
+  `answer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '选项',
+  `solve` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '答案',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_questions
+-- ----------------------------
+INSERT INTO `sys_questions` VALUES (1, '近程无人机活动半径在', '{\"A\":\"小于15km\",\"B\":\"15~50km\",\"C\":\"200~800km\",\"D\":\"以上都是\"}', '{\"B\":\"原因1\"}');
+INSERT INTO `sys_questions` VALUES (2, '超近程无人机活动半径在______以内', '{\"A\":\"15km\",\"B\":\"15~50km\",\"C\":\"50~200km\",\"D\":\"以上都是\"}', '{\"A\":\"原因2\"}');
+INSERT INTO `sys_questions` VALUES (3, '中程无人机活动半径为______。', '{\"A\":\"50~200km\",\"B\":\"200~800km\",\"C\":\"大于800km\",\"D\":\"以上都是\"}', '{\"B\":\"原因3\"}');
+INSERT INTO `sys_questions` VALUES (4, '超低空无人机任务高度一般在______之间', '{\"A\":\"0~100m\",\"B\":\"100~1000m\",\"C\":\"0~50m\",\"D\":\"以上都是\"}', '{\"A\":\"原因4\"}');
+INSERT INTO `sys_questions` VALUES (5, '轻型无人机，是指空机质量', '{\"A\":\"小于7kg\",\"B\":\"大于7kg，小于116kg\",\"C\":\"大于116kg，小于5700kg\",\"D\":\"以上都是\"}', '{\"B\":\"原因5\"}');
+
+-- ----------------------------
+-- Table structure for sys_users
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_users`;
+CREATE TABLE `sys_users`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nickName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '昵称',
+  `sex` tinyint(2) NULL DEFAULT NULL COMMENT '性别',
+  `country` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '国家',
+  `province` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '省份',
+  `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '城市',
+  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '头像',
+  `mobile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_users
+-- ----------------------------
+INSERT INTO `sys_users` VALUES (1, '会飞的鱼', 1, 'China', 'Hubei', 'Wuhan', 'https://wx.qlogo.cn/mmopen/vi_32/UChVfB15CR2b6nL708NCehjHJwNDIwR4dAk4CpHgfbXIB1Nw1DibLRMvh5TQDajluZ3kJo5QOibV5xB77nibSjH4g/132', '110254586');
+INSERT INTO `sys_users` VALUES (2, '会飞的鱼', 1, 'China', 'Hubei', 'Wuhan', 'https://wx.qlogo.cn/mmopen/vi_32/UChVfB15CR2b6nL708NCehjHJwNDIwR4dAk4CpHgfbXIB1Nw1DibLRMvh5TQDajluZ3kJo5QOibV5xB77nibSjH4g/132', '110254586');
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nick_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `sex` tinyint(2) NULL DEFAULT NULL,
+  `country` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `province` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `city` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `avatar` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `mobile` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` datetime NULL DEFAULT NULL,
+  `updated_at` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+
+SET FOREIGN_KEY_CHECKS = 1;

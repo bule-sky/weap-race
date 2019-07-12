@@ -1,0 +1,145 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 50547
+ Source Host           : localhost:3306
+ Source Schema         : weap_race
+
+ Target Server Type    : MySQL
+ Target Server Version : 50547
+ File Encoding         : 65001
+
+ Date: 08/07/2019 19:05:10
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for sequelizemeta
+-- ----------------------------
+DROP TABLE IF EXISTS `sequelizemeta`;
+CREATE TABLE `sequelizemeta`  (
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`name`) USING BTREE,
+  UNIQUE INDEX `name`(`name`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sequelizemeta
+-- ----------------------------
+INSERT INTO `sequelizemeta` VALUES ('20190627091729-init-users.js');
+
+-- ----------------------------
+-- Table structure for sys_questions
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_questions`;
+CREATE TABLE `sys_questions`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ask` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '问题',
+  `answer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '选项',
+  `solve` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '答案',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 82 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_questions
+-- ----------------------------
+INSERT INTO `sys_questions` VALUES (1, '近程无人机活动半径在', '{\"A\":\"小于15km\",\"B\":\"15~50km\",\"C\":\"200~800km\",\"D\":\"以上都是\"}', '{\"B\":\"原因1\"}');
+INSERT INTO `sys_questions` VALUES (2, '超近程无人机活动半径在______以内', '{\"A\":\"15km\",\"B\":\"15~50km\",\"C\":\"50~200km\",\"D\":\"以上都是\"}', '{\"A\":\"原因2\"}');
+INSERT INTO `sys_questions` VALUES (3, '中程无人机活动半径为______。', '{\"A\":\"50~200km\",\"B\":\"200~800km\",\"C\":\"大于800km\",\"D\":\"以上都是\"}', '{\"B\":\"原因3\"}');
+INSERT INTO `sys_questions` VALUES (4, '超低空无人机任务高度一般在______之间', '{\"A\":\"0~100m\",\"B\":\"100~1000m\",\"C\":\"0~50m\",\"D\":\"以上都是\"}', '{\"A\":\"原因4\"}');
+INSERT INTO `sys_questions` VALUES (5, '无人机系统飞行器平台主要使用的是______空气的动力驱动的航空器。', '{\"A\":\"轻于\",\"B\":\"重于\",\"C\":\"等于\",\"D\":\"以上都是\"}', '{\"B\":\"原因5\"}');
+INSERT INTO `sys_questions` VALUES (6, '______航空器平台结构通常包括机翼、机身、尾翼和起落架等。', '{\"A\":\"单旋翼\",\"B\":\"多旋翼\",\"C\":\"固定翼\",\"D\":\"以上都是\"}', '{\"C\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (7, '微型无人机是指 ', '{\"A\":\"空机质量小于等于7千克的无人机\",\"B\":\"质量小于7千克的无人机\",\"C\":\"质量小于等于7千克的无人机\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (8, '多轴飞行器', '{\"A\":\"有自转下滑能力\",\"B\":\"无自转下滑能力\",\"C\":\"有部分自传下滑能力\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (9, '大型无人机是指 ', '{\"A\":\"空机质量大于5，700千克的无人机\",\"B\":\"质量大于5，700千克的无人机\",\"C\":\"空机质量大于等于5，700千克的无人机\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (10, '目前主流的民用无人机所采用的动力系统通常为活塞式发动机和__________两种。', '{\"A\":\"火箭发动机\",\"B\":\"涡扇发动机\",\"C\":\"电动机\",\"D\":\"以上都是\"}', '{\"C\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (11, '活塞发动机系统常采用的增压技术主要是用来。', '{\"A\":\"提高功率\",\"B\":\"减少废气量\",\"C\":\"增加转速\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (12, '电动动力系统主要由动力电机、动力电源和__________组成。', '{\"A\":\"电池\",\"B\":\"调速系统\",\"C\":\"无刷电机\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (13, '从应用上说，涡桨发动机适用于。', '{\"A\":\"中低空、低速短距/垂直起降无人机\",\"B\":\"高空长航时无人机/无人战斗机\",\"C\":\"中高空长航时无人机\",\"D\":\"以上都是\"}', '{\"C\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (14, '属于无人机飞控子系统功能的是', '{\"A\":\"无人机姿态稳定与控制\",\"B\":\"导航控制\",\"C\":\"任务信息收集与传递\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (15, '不属于无人机飞控子系统所需信息的是', '{\"A\":\"经/纬度\",\"B\":\"姿态角\",\"C\":\"空速\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (16, '不应属于无人机飞控计算机任务范畴的是 ', '{\"A\":\"数据中继\",\"B\":\"姿态稳定与控制\",\"C\":\"自主飞行控制\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (17, '无人机通过__________控制舵面和发动机节风门来实现无人机控制。', '{\"A\":\"伺服执行机构\",\"B\":\"操纵杆\",\"C\":\"脚蹬\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (18, '无人机电气系统中电源和__________两者组合统称为供电系统。', '{\"A\":\"用电设备\",\"B\":\"配电系统\",\"C\":\"供电线路\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (19, '无人机搭载任务设备重量主要受限制于。', '{\"A\":\"空重\",\"B\":\"载重能力\",\"C\":\"最大起飞重量\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (20, '无人机配平的主要考虑是__________沿纵轴的前后位置  ', '{\"A\":\"气动焦点\",\"B\":\"发动机\",\"C\":\"重心\",\"D\":\"以上都是\"}', '{\"C\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (21, '大型无人机计算装载重量和重心的方法主要有：计算法、图表法和__________。', '{\"A\":\"试凑法\",\"B\":\"查表法\",\"C\":\"约取法\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (22, '指挥控制与__________是无人机地面站的主要功能 ', '{\"A\":\"导航\",\"B\":\"任务规划\",\"C\":\"飞行视角显示\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (23, '无人机地面站系统不包括 ', '{\"A\":\"机载电台\",\"B\":\"无人机控制站\",\"C\":\"载荷控制站\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (24, '无人机地面站显示系统应能显示__________信息。', '{\"A\":\"无人机飞行员状态\",\"B\":\"飞行器状态及链路、载荷状态\",\"C\":\"飞行空域信息\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (25, '地面站地图航迹显示系统可为无人机驾驶员提供飞行器__________等信息。', '{\"A\":\"飞行姿态\",\"B\":\"位置\",\"C\":\"飞控状态\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (26, '无人机在增稳飞行控制模式下，飞控子系统__________控制。', '{\"A\":\"参与\",\"B\":\"不参与\",\"C\":\"不确定\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (27, '无人机系统通讯链路主要包括：指挥与控制（C.&C.），__________，感知和规避（S&A.）三种。', '{\"A\":\"空中交通管制（A.TC.）\",\"B\":\"电子干扰\",\"C\":\"无线电侦察\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (28, '目前世界上无人机的频谱使用主要集中在UHF、L和__________波段 ', '{\"A\":\"C.\",\"B\":\"VHF\",\"C\":\"任意\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (29, '以下不是导航飞控系统组成部分的是______。', '{\"A\":\"传感器\",\"B\":\"电台\",\"C\":\"执行机构\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (30, '导航子系统功能是向无人机提供______信息，引导无人机沿指定航线安全、准时、准确的飞行。', '{\"A\":\"高度、速度、位置\",\"B\":\"角速度\",\"C\":\"角加速度\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (31, '______是无人机完成起飞、空中飞行、执行任务、返场回收等整个飞行过程的核心系统，对无人机实现全权控制与管理，因此该子系统之于无人机相当于驾驶员之于有人机，是无人机执行任务的关键。', '{\"A\":\"飞控计算机\",\"B\":\"飞控子系统\",\"C\":\"导航子系统\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (32, '飞控子系统必须具备的功能为：______ ', '{\"A\":\"无人机姿态稳定与控制，无人机飞行管理，应急控制\",\"B\":\"无人机飞行管理，与导航子系统协调完成航迹控制，信息收集与传递\",\"C\":\"无人机起飞与着陆控制，无人机飞行管理，信息收集与传递\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (33, '飞控子系统可以不具备如下功能：______ ', '{\"A\":\"姿态稳定与控制\",\"B\":\"导航与制导控制\",\"C\":\"任务分配与航迹规划\",\"D\":\"以上都是\"}', '{\"C\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (34, '无人机电气系统一般包括______3个部分。', '{\"A\":\"电源、电缆、接插件\",\"B\":\"电源、配电系统、用电设备\",\"C\":\"电缆、供电系统、用电设备\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (35, '______两者组合统称为供电系统。', '{\"A\":\"电缆和配电\",\"B\":\"电源和电缆\",\"C\":\"电源和配电\",\"D\":\"以上都是\"}', '{\"C\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (36, '______的功能是向无人机各用电系统或设备提供满足预定设计要求的电能。', '{\"A\":\"配电系统\",\"B\":\"电源\",\"C\":\"供电系统\",\"D\":\"以上都是\"}', '{\"C\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (37, '______功能通常包括指挥调度、任务规划、操作控制、显示记录等功能。', '{\"A\":\"数据链路分系统\",\"B\":\"无人机地面站系统\",\"C\":\"飞控与导航系统\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (38, '______主要是制定无人机飞行任务、完成无人机载荷数据的处理和应用，指挥中心/数据处理中心一般都是通过无人机控制站等间接地实现对无人机的控制和数据接收。', '{\"A\":\"指挥处理中心\",\"B\":\"无人机控制站\",\"C\":\"载荷控制站\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (39, '______主要是由飞行操纵、任务载荷控制、数据链路控制和通信指挥等组成，可完成对无人机机载任务载荷等的操纵控制。', '{\"A\":\"指挥处理中心\",\"B\":\"无人机控制站\",\"C\":\"载荷控制站\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (40, '______与无人机控制站的功能类似，但只能控制无人机的机载任务设备，不能进行无人机的飞行控制。', '{\"A\":\"指挥处理中心\",\"B\":\"无人机控制站\",\"C\":\"载荷控制站\",\"D\":\"以上都是\"}', '{\"C\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (41, '地面控制站飞行参数综合显示的内容包括：______ ', '{\"A\":\"飞行与导航信息、数据链状态信息、设备状态信息、指令信息\",\"B\":\"导航信息显示、航迹绘制显示以及地理信息的显示\",\"C\":\"告警信息、地图航迹显示信息\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (42, '活塞发动机的爆震最易发生在', '{\"A\":\"发动机处于小转速和大进气压力状态工作\",\"B\":\"发动机处于高功率状态下工作时\",\"C\":\"发动机处于大转速和小进气压力转台工作\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (43, '活塞发动机混合气过富油燃烧将引起__________的问题。', '{\"A\":\"发动机过热\",\"B\":\"电嘴积炭\",\"C\":\"发动机工作平稳，但燃油消耗量变大\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (44, '下列哪项是飞行控制的方式之一。______', '{\"A\":\"陀螺控制\",\"B\":\"指令控制\",\"C\":\"载荷控制\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (45, '无人的发动机采用重力供油系统但装有增压泵，主要是为了', '{\"A\":\"减少油箱的剩余燃油\",\"B\":\"保证大速度巡航的用油\",\"C\":\"保证爬升、下降及其它特殊情况下的正常供油\",\"D\":\"以上都是\"}', '{\"C\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (46, '无人机燃油箱通气目的之一是', '{\"A\":\"通气增大供油流量\",\"B\":\"保证向发动机正常供油\",\"C\":\"通气减小供油流量\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (47, '汽化器式活塞发动机在何时容易出现汽化器回火现象', '{\"A\":\"热发动起动时\",\"B\":\"油门收的过猛\",\"C\":\"寒冷天气第一次起动时\",\"D\":\"以上都是\"}', '{\"C\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (48, '二冲程活塞汽油发动机应使用何种润滑油', '{\"A\":\"2T机油\",\"B\":\"4T机油\",\"C\":\"汽车机油\",\"D\":\"以上都是\"}', '{\"A\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (49, '对于带襟翼无人机，放下襟翼，飞机的升力将__________，阻力将__________。', '{\"A\":\"增大、减小\",\"B\":\"增大、增大\",\"C\":\"减小、减小\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+INSERT INTO `sys_questions` VALUES (50, '对于带襟翼无人机，放下襟翼，飞机的失速速度将.', '{\"A\":\"增大\",\"B\":\"减小\",\"C\":\"不变\",\"D\":\"以上都是\"}', '{\"B\":\"原因\"}');
+
+-- ----------------------------
+-- Table structure for sys_users
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_users`;
+CREATE TABLE `sys_users`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nickName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '昵称',
+  `sex` tinyint(2) NULL DEFAULT NULL COMMENT '性别',
+  `country` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '国家',
+  `province` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '省份',
+  `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '城市',
+  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '头像',
+  `mobile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `openId` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_users
+-- ----------------------------
+INSERT INTO `sys_users` VALUES (1, '会飞的鱼', 1, 'China', 'Hubei', 'Wuhan', 'https://wx.qlogo.cn/mmopen/vi_32/UChVfB15CR2b6nL708NCehjHJwNDIwR4dAk4CpHgfbXIB1Nw1DibLRMvh5TQDajluZ3kJo5QOibV5xB77nibSjH4g/132', '110254586', NULL);
+INSERT INTO `sys_users` VALUES (2, '会飞的鱼', 1, 'China', 'Hubei', 'Wuhan', 'https://wx.qlogo.cn/mmopen/vi_32/UChVfB15CR2b6nL708NCehjHJwNDIwR4dAk4CpHgfbXIB1Nw1DibLRMvh5TQDajluZ3kJo5QOibV5xB77nibSjH4g/132', '110254586', NULL);
+INSERT INTO `sys_users` VALUES (8, '☆ 锦瑟流年 ☆ ゐ', 1, '中国', '湖北', '武汉', 'https://wx.qlogo.cn/mmopen/vi_32/Pepavr3wyAWon8OAts16ooYJKjEibPlveL8IME7F42YX78CricXibMJjcYrAib5xrYnHQqxDvSYniaMnuvXbr8VpneQ/132', NULL, 'oIHFY5KXJF6AbU__wBqh1hhdYGnI');
+INSERT INTO `sys_users` VALUES (7, '☆ 锦瑟流年 ☆ ゐ', 1, '中国', '湖北', '武汉', 'https://wx.qlogo.cn/mmopen/vi_32/Pepavr3wyAWon8OAts16ooYJKjEibPlveL8IME7F42YX78CricXibMJjcYrAib5xrYnHQqxDvSYniaMnuvXbr8VpneQ/132', NULL, 'oIHFY5KXJF6AbU__wBqh1hhdYGnI');
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nick_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `sex` tinyint(2) NULL DEFAULT NULL,
+  `country` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `province` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `city` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `avatar` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `mobile` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` datetime NULL DEFAULT NULL,
+  `updated_at` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+
+SET FOREIGN_KEY_CHECKS = 1;

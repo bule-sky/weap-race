@@ -1,0 +1,207 @@
+<template>
+  <view class="container">
+    <button bindtap="tapDialog">显示弹出框</button>
+    <dialog id="dialog" bind:cancelEvent="cancelEvent" bind:okEvent="okEvent"></dialog>    
+
+    <button bindtap="tapModal">弹出框</button>
+    <auth-modal height="80"></auth-modal>
+
+
+    <open-data type="userAvatarUrl"></open-data>
+    <open-data type="userNickName"></open-data>
+    <open-data type="userGender" lang="zh_CN"></open-data>
+    <view class="userinfo" @tap="handleViewTap">
+      <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"/>
+      <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
+    </view>
+
+
+    <view wx:if="{{canIUse}}">
+      <view class='header'>
+        <view class="userinfo-avatar">
+          <open-data  type="userAvatarUrl"></open-data>
+        </view>
+      </view>
+      <view class='content'>
+        <view>申请获取以下权限</view>
+        <text>获得您的公开信息(昵称，头像等)</text>
+      </view>
+      <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+        授权登录
+      </button>
+    </view>
+    <view wx:else>请升级微信版本</view>
+
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import Dialog from '@/components/Dialog'
+import AuthModal from '@/components/AuthModal'
+
+export default class Info extends wepy.page {
+    config = {}
+    data = {
+      //判断小程序的API，回调，参数，组件等是否在当前版本可用。
+      canIUse: wepy.canIUse('button.open-type.getUserInfo'),
+      userInfo: {
+        nickName: '加载中...'
+      }
+    }
+    components = {
+      Dialog,
+      AuthModal
+    }
+    methods = {
+
+      bindGetUserInfo: function (e) {
+        if (e.detail.userInfo) {
+          //用户按了允许授权按钮
+          var that = this;
+          //授权成功后，跳转进入小程序首页
+          wepy.switchTab({
+            url: '/pages/index'
+          })
+        } else {
+          //用户按了拒绝按钮
+          wepy.showModal({
+            title: '警告',
+            content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!',
+            showCancel: false,
+            confirmText: '返回授权',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击了“返回授权”')
+              }
+            }
+          })
+        }
+      },
+
+      tapModal() {
+        this.$broadcast('showModal', true)
+      },
+      tapDialog:function(){
+        this.$broadcast('isShow', true)
+        // console.log(this.selectComponent("#dialog"));
+        // console.log(this.$wxpage.selectComponent('#dialog'));
+        // this.$invoke('./../ComB/ComG', 'someMethod', 'someArgs');
+        // console.log(this.dialog);
+        // this.dialog= {
+        //   title:'温馨提示',
+        //   content:'您就是我的Master吗？',
+        //   cancelText:'滚！',
+        //   okText:'是的,Saber!'
+        // };
+        // this.dialog.show();
+      },
+      // cancelEvent: function(){
+      //   console.log(this.dialog.data.cancelText);
+      //   this.dialog.close();
+      // },
+      // okEvent: function(){
+      //   console.log(this.dialog.data.okText);
+      //   this.dialog.close();
+      // }
+    }
+    onReady() {
+      console.log('object');
+      // console.log(this.$wxpage.selectComponent('#dialog'));
+    }
+
+    onLoad() {
+
+    var that = this;
+    // 查看是否授权
+    wepy.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          wepy.getUserInfo({
+            success: function (res) {
+              //从数据库获取用户信息
+              that.queryUsreInfo();
+              //用户已经授权过
+              wepy.switchTab({
+                url: '/pages/index'
+              })
+            }
+          });
+        }
+      }
+    })
+
+      // console.log(this.$wxpage.handleSome('#dialog'));
+      // console.log(this.$wxpage.selectComponent('#dialog'));
+      // console.log(this.$parent);
+      // console.log(this.$wxapp);
+      // console.log(this.selectComponent('#dialog'));
+      // console.log(wepy);
+      // console.log(this.$getComponent('../components/Dialog'));
+      // this.dialog = this.$wxpage.selectComponent('#dialog');
+      // console.log(this.dialog)
+
+
+      // wepy.showModal({
+      //   title: '提示',
+      //   content: '这是一个模态弹窗',
+      //   success (res) {
+      //     if (res.confirm) {
+      //       console.log('用户点击确定')
+      //     } else if (res.cancel) {
+      //       console.log('用户点击取消')
+      //     }
+      //   }
+      // })
+      // let self = this
+      // this.$parent.getUserInfo(function (userInfo) {
+      //   console.log(userInfo)
+      //   if (userInfo) {
+      //     self.userInfo = userInfo
+      //   }
+      //   self.$apply()
+      // })
+    }
+}
+</script>
+
+<style>
+
+.header {
+  position: relative;
+  margin: 90rpx 0 90rpx 50rpx;
+  width: 650rpx;
+  height: 320rpx;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.userinfo-avatar {
+  overflow:hidden;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  margin-top: 50rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.content {
+    margin-left: 50rpx;
+    margin-bottom: 90rpx;
+}
+.content text {
+    display: block;
+    color: #9d9d9d;
+    margin-top: 40rpx;
+}
+.bottom {
+    border-radius: 80rpx;
+    margin: 70rpx 50rpx;
+    font-size: 35rpx;
+}
+
+</style>
