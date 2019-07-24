@@ -53,6 +53,7 @@ export default class AuthPage extends wepy.page {
                 if (result && code === 0) {
                   if (data.openid){
                     wepy.setStorageSync('openid', data.openid)
+                    wepy.setStorageSync('session_key', data.session_key)
                     this.methods.createUser(userInfo,data.openid)
                     this.methods.updateStatus({status:1, openId:data.openid})
                     wepy.navigateTo({

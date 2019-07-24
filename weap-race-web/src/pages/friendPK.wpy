@@ -37,6 +37,7 @@
 <script>
 import wepy from 'wepy'
 import { get,post } from '@/utils/http'
+// import { WXBizDataCrypt } from '@/utils/WXBizDataCrypt'
 
 export default class FriendPK extends wepy.page {
     data = {
@@ -62,6 +63,22 @@ export default class FriendPK extends wepy.page {
     }
 
     methods ={
+      getWeRunData () {
+        wepy.getWeRunData().then((res) => {
+          console.log(JSON.stringify(res))
+          post(`user/runstep`, res).then((result) => {
+            console.log(result)
+            // let {code,data} = res
+            // if (res && code === 0) {
+            //   return data
+            // }
+          }).catch((err) => {
+            console.log(err);
+          });
+        }).catch((err) => {
+          console.log(err);
+        });
+      },
       getQuestion(id) {
         return  get(`question/query/${id}`).then((res) => {
             let {code,data} = res
@@ -207,6 +224,7 @@ export default class FriendPK extends wepy.page {
       this.userInfo = this.$parent.globalData.userInfo
       this.questionArr = await this.methods.getQuestion(num)
       this.$apply() //强制渲染避免
+      this.methods.getWeRunData()
       console.log(this.questionArr);
       // console.log(this.userInfo);
       // console.log(document.createElement('#demo'));
@@ -239,6 +257,11 @@ export default class FriendPK extends wepy.page {
         //   url:'需要跳转到的页面'
         // })
       }
+    }
+
+    onUnload() {
+      // this.methods.calcTotal()
+      console.log('离开当前页面')
     }
 
 }
