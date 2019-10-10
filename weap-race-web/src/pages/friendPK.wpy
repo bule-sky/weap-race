@@ -37,7 +37,6 @@
 <script>
 import wepy from 'wepy'
 import { get,post } from '@/utils/http'
-// import { WXBizDataCrypt } from '@/utils/WXBizDataCrypt'
 
 export default class FriendPK extends wepy.page {
     data = {
@@ -48,7 +47,7 @@ export default class FriendPK extends wepy.page {
       index: 0,
       reason: '',
       // isResolve 1 开始 2 pk题目 3 结果
-      isResolve: 2,
+      isResolve: 1,
       isType: true,
       Timer: null,
       questionArr: [],
@@ -63,15 +62,15 @@ export default class FriendPK extends wepy.page {
     }
 
     methods ={
+      // 微信运动
       getWeRunData () {
         wepy.getWeRunData().then((res) => {
-          console.log(JSON.stringify(res))
           post(`user/runstep`, res).then((result) => {
-            console.log(result)
-            // let {code,data} = res
-            // if (res && code === 0) {
-            //   return data
-            // }
+            let {code, msg, data} = result
+            if (result && code === 0) {
+              console.log(data)
+            }
+            console.log(msg);
           }).catch((err) => {
             console.log(err);
           });
@@ -79,6 +78,7 @@ export default class FriendPK extends wepy.page {
           console.log(err);
         });
       },
+      // 题目查询
       getQuestion(id) {
         return  get(`question/query/${id}`).then((res) => {
             let {code,data} = res
